@@ -13,9 +13,9 @@ To complete this project I used the following checklist to break the problem dow
 
 Base Mode Steps
 - [x] Conduct project dependencies install on server side
-- [ ] Test basic server function (call public assets from browser)
-- [ ] Create site file structure
-- [ ] Create basic styling
+- [x] Test basic server function (call public assets from browser)
+- [x] Create site file structure
+- [x] Create basic styling
 - [ ] Create and test server side GET Route meeting project specs
 - [ ] Create and test server side POST Route meeting project specs
 - [ ] Implement client side form handling meeting project specs

@@ -8,26 +8,39 @@
     <script defer src="scripts/client.js" charset="utf-8"></script>
   </head>
   <body>
-    <section id="header">
-      <h1>Server-Side Calculator</h1>
+    <section class="header">
+      <img src="./images/marcusBust.png" alt="Bust of Emporer Marcus Aurelius">
+      <h1>Imperial Calculator MMXXIII</h1>
+      <h2>Server-Side Calculator</h2>
     </section>
-    <form data-testid="calculator">
-      <input placeholder="First Number">
-      <button>+</button>
-      <button>-</button>
-      <button>*</button>
-      <button>/</button>
-      <input placeholder="Second Number">
-      <button>=</button>
-      <button>C</button>
-    </form>
+    <section class="main">
+      <section class="column left">  
+      </section>
+      <section class="center">
+        <form data-testid="calculator" class="inputForm">
+          FORM
+          <input placeholder="First Number">
+          <button>+</button>
+          <button>-</button>
+          <button>*</button>
+          <button>/</button>
+          <input placeholder="Second Number">
+          <button>=</button>
+          <button>C</button>
+        </form>
 
-    <section data-testid="recentResult">
-      <!-- The most recent calculation result goes here. -->
-    </section>
+        <section data-testid="recentResult" class="recentResult">
+          <!-- The most recent calculation result goes here. -->
+          RECENT RESULT
+        </section>
 
-    <section data-testid="resultHistory">
-      <!-- The list of calculation results goes here. -->
+        <section data-testid="resultHistory" class="resultHistory">
+          <!-- The list of calculation results goes here. -->
+          RESULT HISTORY
+        </section>
+      </section>
+      <section class="column right">  
+      </section>
     </section>
   </body>
 </html>
