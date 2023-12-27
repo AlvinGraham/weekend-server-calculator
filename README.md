@@ -16,8 +16,8 @@ Base Mode Steps
 - [x] Test basic server function (call public assets from browser)
 - [x] Create site file structure
 - [x] Create basic styling
-- [ ] Create and test server side GET Route meeting project specs
-- [ ] Create and test server side POST Route meeting project specs
+- [x] Create and test server side GET Route meeting project specs
+- [x] Create and test server side POST Route meeting project specs
 - [ ] Implement client side form handling meeting project specs
 - [ ] Create client side POST route to handle passing of data to server for calculations
 - [ ] Create client side GET route to handle display of results and results history

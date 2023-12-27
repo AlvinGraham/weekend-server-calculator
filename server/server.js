@@ -22,6 +22,38 @@ app.get('/calculations', (req, res) => {
 
 // POST /calculations
 
+app.post('/calculations', (req , res) => {
+  console.log('In /calculations POST (received):');
+  console.table(req.body);
+  let result;
+  const numOne = req.body.numOne;
+  const numTwo = req.body.numTwo;
+  const operator = req.body.operator;
+
+  // Evaluate expression
+  switch (operator) {
+    case '+':
+      result = +numOne + +numTwo;
+      break;
+    case '-':
+      result = +numOne - +numTwo;
+      break;
+    case '/':
+      result = +numOne / +numTwo;
+      break;
+    case '*':
+      result = +numOne * +numTwo;
+      break;
+    default:
+      console.log('No Valid Operator');
+  }
+  // console.log('Result:', result);
+
+  calculations.push({numOne: numOne, numTwo: numTwo, operator: operator, result: result});
+  // console.table(calculations);
+
+  res.sendStatus(201);
+});
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
 // 🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸
