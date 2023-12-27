@@ -14,6 +14,12 @@ let calculations = []
 
 // GET /calculations
 
+app.get('/calculations', (req, res) => {
+  console.log('Sending calculations:');
+  console.table(calculations);
+  res.send(calculations);
+});
+
 // POST /calculations
 
 

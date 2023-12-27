@@ -67,19 +67,26 @@ body {
   flex-flow: column nowrap;
   color: gold;
   align-items: center;
+  min-width: 500px;
 }
 
 /* Display Area */
 .inputForm {
-  padding-top: 20px;
-
+  padding: 10px;
+  margin-top: 10px;
+  border: 2px solid purple;
+  border-radius: 10px;
 }
 
 .recentResult {
   margin-top: 50px;
+  border: 2px solid purple;
+  border-radius: 10px;
 
 }
 
 .resultHistory {
   margin-top: 20px;
+  border: 2px solid purple;
+  border-radius: 10px;
 }
