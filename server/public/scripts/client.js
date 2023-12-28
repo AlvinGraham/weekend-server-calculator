@@ -142,6 +142,9 @@ function clearForm (event) {
   numOneEle.value = null;
   numTwoEle.value = null;
   clearBtns();
+}
 
+function clrHistory(event) {
+  event.preventDefault();
 }
 

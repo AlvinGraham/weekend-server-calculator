@@ -73,6 +73,18 @@ app.post('/calculations', (req , res) => {
   res.sendStatus(201);
 });
 
+// DELETE /calculations
+app.delete('/calculations', (req, res) => {
+  console.log('In /calculations DELETE.');
+
+  calculations = [];
+  console.log('calculations deleted. New calculations array:', calculations);
+
+  res.sendStatus(200);
+  return;
+});
+
+
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
 // 🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸
 
