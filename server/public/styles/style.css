@@ -7,6 +7,14 @@ body {
   box-sizing: border-box;
 }
 
+h3 {
+  text-align: center;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
 /* Header Rules */
 .header {
   background-color: purple;
@@ -15,6 +23,7 @@ body {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+  
   border-bottom: 1px solid gold;
 }
 
@@ -22,9 +31,12 @@ body {
   height: 100px;
   border-radius: 90px;
   position: absolute;
+
   margin: 0px 10px;
 }
-
+.header a {
+  align-self: center;
+}
 .header h1, .header h2 {
   text-align: center;
   margin: 0;
@@ -71,6 +83,8 @@ body {
 }
 
 /* Display Area */
+  /* Data Entry */
+
 .inputForm {
   padding: 10px;
   margin-top: 10px;
@@ -78,17 +92,66 @@ body {
   border-radius: 10px;
 }
 
-.recentResult {
-  margin-top: 50px;
-  border: 2px solid purple;
-  border-radius: 10px;
-
+.inputForm button {
+  margin: 0px 3px;
 }
 
+.inputForm h3 {
+  text-align: center;
+  margin: 5px 10px;
+}
+
+.inputForm p {
+  margin: 5px 10px;
+}
+
+#numOne {
+  margin-left: 10px;
+}
+
+
+  /* Current Result */
+.recentResult {
+  margin-top: 25px;
+  border: 2px solid purple;
+  border-radius: 10px;
+  width: 250px;
+}
+
+.recentResult h2 {
+  text-align: center;
+}
+
+  /* Result History */ 
 .resultHistory {
   margin-top: 20px;
   border: 2px solid purple;
   border-radius: 10px;
+  width: 250px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.resultHistory h3 {
+  margin-bottom: 10px;
+}
+.resultHistory ul {
+  align-self: flex-start;
+  margin-top: 0px;
+}
+
+.resultHistory a {
+  border: 1px solid purple;
+  padding: 3px 3px;
+}
+
+.resultHistory li {
+  margin: 12px 0px;
+}
+
+.resultHistory p {
+  border-top: 1px solid gold;
+  margin-bottom: 0px;
 }
 
 /* Buttons */
@@ -102,4 +165,8 @@ button {
   color: gold;
   background-color: purple;
   box-shadow: gold 2px 2px;
+}
+
+button:hover {
+  cursor: pointer;
 }

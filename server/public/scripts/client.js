@@ -43,8 +43,11 @@ function renderHistoryResults () {
     // render history to DOM
     for (let item of response.data) {
       historyWindowEle.innerHTML += `
+        
         <li>
+          <a onclick="recallExp(event)">
           ${item.numOne} ${item.operator} ${item.numTwo} = ${item.result}
+          </a>
         </li>`;
     }
 
@@ -159,5 +162,23 @@ function clrHistory(event) {
   .catch((error) => {
     console.error('Error in /calculation DELETE route');
   });
+}
+
+function recallExp(event) {
+  event.preventDefault();
+  console.log('In recall function');
+  let resultStr = null;
+  // get expression string
+  let expStr = event.target.innerHTML.trim();
+  console.log("'" + expStr + "'", expStr.length);
+    //isolate numbers and operator
+  let expArr = expStr.split(' ');
+  console.log(expArr);
+
+  // populate data entry area
+  numOneEle.value = expArr[0];
+  numTwoEle.value = expArr[2];
+  opBtnClk(expArr[1], event);
+  return;
 }
 

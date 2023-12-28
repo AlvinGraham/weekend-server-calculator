@@ -29,7 +29,7 @@ Stretch Mode Steps
 - [x] Implement client side data validation
 - [x] Implement clear history button functionality
 - [ ] Update input interface to look like real world calculator
-- [ ] Implement recall/re-run buttons on calculation history results
+- [x] Implement recall/re-run buttons on calculation history results
 - [ ] Finalize CSS Styling
  
 <!-- To achieve the stretch goal of adjusting the monthly total after removing an employee, I implemented a global array of employee objects keying on the ID (guaranteed to be unique) and salary.  That way whenever an employee was added or removed, an updated salary could be quickly computed at will from the existing array of employees.
@@ -52,9 +52,8 @@ The styling of the interface is heavily influenced by a J.R.R. Tolkien motif fro
  
 <!-- 1. Open up your editor of choice and run an `npm install`
 2. Initiate the server using `node server/server.js`
-3. Optionally set create a `.env` file and set the port using the `PROD` variable (will default to 5001 if not set).
-5. navigate to host ip and port in browser (e.g. `127.0.0.1:5001`)
-6. Enjoy!!! -->
+3. navigate to host ip and port in browser (e.g. `127.0.0.1:5000`)
+4. Enjoy!!! -->
 
 ## Usage
 <!-- How does someone use this application? Tell a user story here.
@@ -73,8 +72,9 @@ The styling of the interface is heavily influenced by a J.R.R. Tolkien motif fro
 ## Built With
 
 1. Server Side
-  - Node.js (including Express and dotenv modules)
+  - Node.js 
   - javascript
+  - express
 2. Client Side
   - HTML
   - CSS
