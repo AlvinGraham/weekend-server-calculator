@@ -18,9 +18,10 @@ Base Mode Steps
 - [x] Create basic styling
 - [x] Create and test server side GET Route meeting project specs
 - [x] Create and test server side POST Route meeting project specs
-- [ ] Implement client side form handling meeting project specs
+- [x] Implement client side form handling meeting project specs
+- [x] Create client side GET route to handle display of results and results history
 - [ ] Create client side POST route to handle passing of data to server for calculations
-- [ ] Create client side GET route to handle display of results and results history
+
 
 Stretch Mode Steps
 - [ ] Implement server side data validation

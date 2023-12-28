@@ -1,4 +1,4 @@
-const { resource } = require("../../server");
+
 
 console.log('client.js is sourced!');
 
@@ -16,13 +16,17 @@ const numTwoEle = document.getElementById('numTwo');
 console.log(plusBtnEle, minusBtnEle,timesBtnEle, divideBtnEle);
 console.log(numOneEle, numTwoEle);
 
+renderHistoryResults();
+
 function renderHistoryResults () {
   console.log('Render Results to DOM');
   const historyWindowEle = document.getElementById('historyWindow');
-
-  // clear history window
+  const currentResultWindowEle = document.getElementById('currentResultWindow');
+  
+  // clear history  and curret results window
   historyWindowEle.innerHTML = null;
-
+  currentResultWindowEle.innerHTML = null;
+  
   axios({
     method: 'GET',
     url: '/calculations'
@@ -30,6 +34,16 @@ function renderHistoryResults () {
   .then((response) => {
     console.log('In GET route:');
     console.table(response.data);
+
+    // render current result to DOM
+    currentResultWindowEle.innerHTML = response.data[response.data.length - 1].result;
+    // render history to DOM
+    for (let item of response.data) {
+      historyWindowEle.innerHTML += `
+        <li>
+          ${item.numOne} ${item.operator} ${item.numTwo} = ${item.result}
+        </li>`;
+    }
 
     return;
 
