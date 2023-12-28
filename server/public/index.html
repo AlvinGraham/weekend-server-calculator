@@ -18,25 +18,32 @@
       </section>
       <section class="center">
         <form data-testid="calculator" class="inputForm">
-          FORM
-          <input placeholder="First Number">
-          <button>+</button>
-          <button>-</button>
-          <button>*</button>
-          <button>/</button>
-          <input placeholder="Second Number">
-          <button>=</button>
-          <button>C</button>
+          <h3>DATA ENTRY/INPUT</h3>
+          <p>Enter two numbers and select operator.</p>
+          <p>Press '=' to calculate and write to server.</p>
+          <input id="numOne" placeholder="First Number">
+          <button id="plusBtn" onclick="opBtnClk('+', event)">+</button>
+          <button id="minusBtn" onclick="opBtnClk('-', event)">-</button>
+          <button id="timesBtn" onclick="opBtnClk('*', event)">*</button>
+          <button id="divideBtn" onclick="opBtnClk('/', event)">/</button>
+          <input id="numTwo" placeholder="Second Number">
+          <button id="equalsBtn" onclick="equalsBtnClk(event)">=</button>
+          <button id="clearBtn">C</button>
         </form>
 
         <section data-testid="recentResult" class="recentResult">
           <!-- The most recent calculation result goes here. -->
-          RECENT RESULT
+          <h3>CURRENT RESULT</h3>
+          <div id="currentResultWindow">
+
+          </div>
         </section>
 
         <section data-testid="resultHistory" class="resultHistory">
           <!-- The list of calculation results goes here. -->
-          RESULT HISTORY
+          <h3>RESULT HISTORY</h3>
+          <div id="historyWindow">
+          </div>
         </section>
       </section>
       <section class="column right">  
