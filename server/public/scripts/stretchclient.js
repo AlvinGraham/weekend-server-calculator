@@ -1,6 +1,6 @@
 
 
-console.log('client.js is sourced!');
+console.log('stretchClient.js is sourced!');
 
 // global variables
 let currentOperation;
@@ -43,8 +43,11 @@ function renderHistoryResults () {
     // render history to DOM
     for (let item of response.data) {
       historyWindowEle.innerHTML += `
+        
         <li>
+          <a onclick="recallExp(event)">
           ${item.numOne} ${item.operator} ${item.numTwo} = ${item.result}
+          </a>
         </li>`;
     }
 
@@ -64,7 +67,21 @@ function equalsBtnClk(event) {
   let numOne = numOneEle.value;
   let numTwo = numTwoEle.value;
   let resultExp = {numOne: numOne, numTwo: numTwo, operator: currentOperation};
+  
+  //data validation
+  if (currentOperation !== '+' && currentOperation !== '-' 
+      && currentOperation !== '/' && currentOperation !== '*') {
+        alert('Invalid operator.  Please select +, -, /, or * button!');
+        console.error('Invalid operator.  Current operator:', currentOperation);
+        return;
+      }
+  if ((isNaN(numOne) || isNaN(numTwo)) || (!numOne || !numTwo)){
+    alert('Operand inputs must be numbers!');
+    console.error('Invalid operands (not numbers).  numOne:', numOne, 'numTwo:', numTwo);
+    return;
+  }
 
+  // POST results to server
   axios({
     method: 'POST',
     url: '/calculations',
@@ -87,7 +104,7 @@ function equalsBtnClk(event) {
 }
 
 // operator button selection
-function opBtnClk (op, event) {
+function keyBtnClk (op, event) {
   event.preventDefault();
   
   // clear and set operator buttonand buttons
@@ -128,6 +145,42 @@ function clearForm (event) {
   numOneEle.value = null;
   numTwoEle.value = null;
   clearBtns();
+}
 
+function clrHistory(event) {
+  event.preventDefault();
+
+  axios({
+    method: 'DELETE',
+    url: '/calculations'
+  })
+  .then((response) => {
+    console.log('Calculation History Deleted');
+    renderHistoryResults();
+    return;
+  })
+  .catch((error) => {
+    console.error('Error in /calculation DELETE route');
+  });
+}
+
+function recallExp(event) {
+  event.preventDefault();
+  console.log('In recall function');
+  let resultStr = null;
+  // get expression string
+  let expStr = event.target.innerHTML.trim();
+  console.log("'" + expStr + "'", expStr.length);
+    //isolate numbers and operator
+  let expArr = expStr.split(' ');
+  console.log(expArr);
+
+  // populate data entry area
+  numOneEle.value = expArr[0];
+  numTwoEle.value = expArr[2];
+  keyBtnClk(expArr[1], event);
+  currentResultWindowEle = document.getElementById('currentResultWindow');
+  currentResultWindowEle.innerHTML = null;
+  return;
 }
 

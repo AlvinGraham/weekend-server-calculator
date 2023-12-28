@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Server-Side Calculator</title>  
+    <link href="../styles/stretchStyle.css" rel="stylesheet">  
+    <script defer src="../scripts/axios.js"></script>
+    <script defer src="../scripts/client.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <section class="header">
+      <img src="../images/marcusBust.png" alt="Bust of Emporer Marcus Aurelius">
+      <h1>Imperial Calculator MMXXIII</h1>
+      <h2>Server-Side Calculator (STRETCH MODE)</h2>
+      <a href="../index.html"><button>Click Here for BASE MODE</button></a>
+    </section>
+    <section class="main">
+      <section class="column left">  
+      </section>
+      <section class="center">
+        <form data-testid="calculator" class="inputForm">
+          <h3>DATA ENTRY/INPUT</h3>
+          <br>
+          <label id="inputLabel" for="expInput">Input Expression:</label>
+          <input id="expInput" type="text" placeholder="Enter expression here or use keypad">
+          <button id="clearBtn" onclick="clearForm(event)">C</button>
+          <p>Press '=' to calculate and write to server.</p>
+          <div class="keyPad">
+            <button id="sevenBtn" onclick="keyBtnClk('7', event)">7</button>
+            <button id="eightBtn" onclick="keyBtnClk('8', event)">8</button>
+            <button id="nineBtn" onclick="keyBtnClk('9', event)">9</button>
+            <button id="plusBtn" onclick="keyBtnClk('+', event)">+</button>
+            <button id="fourBtn" onclick="keyBtnClk('4', event)">4</button>
+            <button id="fiveBtn" onclick="keyBtnClk('5', event)">5</button>
+            <button id="sixBtn" onclick="keyBtnClk('6', event)">6</button>
+            <button id="minusBtn" onclick="keyBtnClk('-', event)">-</button>
+            <button id="oneBtn" onclick="keyBtnClk('1', event)">1</button>
+            <button id="twoBtn" onclick="keyBtnClk('2', event)">2</button>
+            <button id="threeBtn" onclick="keyBtnClk('3', event)">3</button>
+            <button id="timesBtn" onclick="keyBtnClk('*', event)">*</button>
+            <button id="zeroBtn" onclick="keyBtnClk('0', event)">0</button>
+            <button id="dotBtn" onclick="keyBtnClk('.', event)">.</button>
+            <button id="equalsBtn" onclick="equalsBtnClk(event)">=</button>
+            <button id="divideBtn" onclick="keyBtnClk('/', event)">/</button>
+          </div>
+        </form>
+
+        <section data-testid="recentResult" class="recentResult">
+          <!-- The most recent calculation result goes here. -->
+          <h3>CURRENT RESULT</h3>
+          <h2 id="currentResultWindow"><h2>
+        </section>
+
+        <section data-testid="resultHistory" class="resultHistory">
+          <!-- The list of calculation results goes here. -->
+          <h3>RESULT HISTORY</h3>
+          <button id="clrHistoryBtn" onclick="clrHistory(event)">Clear/Delete Results History</button>
+          <p>Click result to recall into data entry</p>
+          <ul id="historyWindow">
+          </ul>
+        </section>
+      </section>
+      <section class="column right">  
+      </section>
+    </section>
+  </body>
+</html>

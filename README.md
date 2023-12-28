@@ -30,7 +30,7 @@ Stretch Mode Steps
 - [x] Implement clear history button functionality
 - [ ] Update input interface to look like real world calculator
 - [x] Implement recall/re-run buttons on calculation history results
-- [ ] Finalize CSS Styling
+- [x] Finalize CSS Styling
  
 <!-- To achieve the stretch goal of adjusting the monthly total after removing an employee, I implemented a global array of employee objects keying on the ID (guaranteed to be unique) and salary.  That way whenever an employee was added or removed, an updated salary could be quickly computed at will from the existing array of employees.
 

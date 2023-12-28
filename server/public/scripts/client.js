@@ -179,6 +179,8 @@ function recallExp(event) {
   numOneEle.value = expArr[0];
   numTwoEle.value = expArr[2];
   opBtnClk(expArr[1], event);
+  currentResultWindowEle = document.getElementById('currentResultWindow');
+  currentResultWindowEle.innerHTML = null;
   return;
 }
 
