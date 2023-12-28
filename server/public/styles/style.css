@@ -95,4 +95,11 @@ body {
 
 .clicked {
   background-color: grey;
+  box-shadow: none;
+}
+
+button {
+  color: gold;
+  background-color: purple;
+  box-shadow: gold 2px 2px;
 }

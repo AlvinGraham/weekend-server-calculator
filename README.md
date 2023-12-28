@@ -27,7 +27,7 @@ Base Mode Steps
 Stretch Mode Steps
 - [x] Implement server side data validation
 - [x] Implement client side data validation
-- [ ] Implement clear history button functionality
+- [x] Implement clear history button functionality
 - [ ] Update input interface to look like real world calculator
 - [ ] Implement recall/re-run buttons on calculation history results
 - [ ] Finalize CSS Styling

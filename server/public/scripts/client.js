@@ -146,5 +146,18 @@ function clearForm (event) {
 
 function clrHistory(event) {
   event.preventDefault();
+
+  axios({
+    method: 'DELETE',
+    url: '/calculations'
+  })
+  .then((response) => {
+    console.log('Calculation History Deleted');
+    renderHistoryResults();
+    return;
+  })
+  .catch((error) => {
+    console.error('Error in /calculation DELETE route');
+  });
 }
 
