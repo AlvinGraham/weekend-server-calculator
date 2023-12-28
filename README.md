@@ -21,7 +21,7 @@ Base Mode Steps
 - [x] Implement client side form handling meeting project specs
 - [x] Create client side GET route to handle display of results and results history
 - [x] Create client side POST route to handle passing of data to server for calculations
-- [ ] Implement clear history button functionality
+- [x] Implement clear button functionality
 
 
 Stretch Mode Steps
