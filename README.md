@@ -20,13 +20,14 @@ Base Mode Steps
 - [x] Create and test server side POST Route meeting project specs
 - [x] Implement client side form handling meeting project specs
 - [x] Create client side GET route to handle display of results and results history
-- [ ] Create client side POST route to handle passing of data to server for calculations
+- [x] Create client side POST route to handle passing of data to server for calculations
+- [ ] Implement clear history button functionality
 
 
 Stretch Mode Steps
 - [ ] Implement server side data validation
 - [ ] Implement client side data validation
-- [ ] Implement clear button functionality
+- [ ] Implement clear history button functionality
 - [ ] Update input interface to look like real world calculator
 - [ ] Implement recall/re-run buttons on calculation history buttons
 - [ ] Finalize CSS Styling

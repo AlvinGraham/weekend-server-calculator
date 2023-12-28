@@ -36,7 +36,10 @@ function renderHistoryResults () {
     console.table(response.data);
 
     // render current result to DOM
+    if (response.data.length > 0) {
     currentResultWindowEle.innerHTML = response.data[response.data.length - 1].result;
+    }
+
     // render history to DOM
     for (let item of response.data) {
       historyWindowEle.innerHTML += `
@@ -56,6 +59,31 @@ function renderHistoryResults () {
 function equalsBtnClk(event) {
   event.preventDefault();
   console.log('Equals Button Clicked');
+
+  //assemble data
+  let numOne = numOneEle.value;
+  let numTwo = numTwoEle.value;
+  let resultExp = {numOne: numOne, numTwo: numTwo, operator: currentOperation};
+
+  axios({
+    method: 'POST',
+    url: '/calculations',
+    data: resultExp
+  })
+  .then((response) => {
+    // Render Results
+    renderHistoryResults();
+
+    //clear form
+    clearForm(event);
+
+
+    return;
+  })
+  .catch((error) => {
+    console.log('Error in POST Route:', error);
+  });
+
 }
 
 // operator button selection
@@ -91,5 +119,15 @@ function clearBtns () {
   timesBtnEle.classList.remove('clicked');
   divideBtnEle.classList.remove('clicked');
   return;
+}
+
+function clearForm (event) {
+  event.preventDefault();
+  console.log(event);
+  //clear form
+  numOneEle.value = null;
+  numTwoEle.value = null;
+  clearBtns();
+
 }
 
