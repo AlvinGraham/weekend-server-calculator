@@ -64,7 +64,21 @@ function equalsBtnClk(event) {
   let numOne = numOneEle.value;
   let numTwo = numTwoEle.value;
   let resultExp = {numOne: numOne, numTwo: numTwo, operator: currentOperation};
+  
+  //data validation
+  if (currentOperation !== '+' && currentOperation !== '-' 
+      && currentOperation !== '/' && currentOperation !== '*') {
+        alert('Invalid operator.  Please select +, -, /, or * button!');
+        console.error('Invalid operator.  Current operator:', currentOperation);
+        return;
+      }
+  if ((isNaN(numOne) || isNaN(numTwo)) || (!numOne || !numTwo)){
+    alert('Operand inputs must be numbers!');
+    console.error('Invalid operands (not numbers).  numOne:', numOne, 'numTwo:', numTwo);
+    return;
+  }
 
+  // POST results to server
   axios({
     method: 'POST',
     url: '/calculations',
