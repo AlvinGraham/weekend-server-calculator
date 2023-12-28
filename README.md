@@ -32,15 +32,18 @@ Stretch Mode Steps
 - [x] Implement recall/re-run buttons on calculation history results
 - [x] Finalize CSS Styling
  
-<!-- To achieve the stretch goal of adjusting the monthly total after removing an employee, I implemented a global array of employee objects keying on the ID (guaranteed to be unique) and salary.  That way whenever an employee was added or removed, an updated salary could be quickly computed at will from the existing array of employees.
+To achieve the stretch goal of updating data entry to work like a real world calcultor, I used a grid display type in CSS to arrange the keys, then reqrote the CSS and javascript to append the values directly into the iput field. In order to prevent test-mode failure, the stretch goal was implemented by linking to a seperate stretch goal page with it's own stylesheet and client.js. I was also a little disappointed that javascript does not inherently view strings as arrays of characters ( I had originally envisioned data manipulation of strings using array methods, but hey, I figured it out anyway).
 
-The styling of the interface is heavily influenced by a J.R.R. Tolkien motif from the bad guys side. -->
+The styling of the interface was influenced by an Imperial Roman color and style theme.
 
 
 ## Screen Shot
 
-<!-- ![demo1](./wsc-demo-1.png)
-![demo2](./wsc-demo-2.png) -->
+Base Mode Screen Shot
+![BASE MODE](./images/baseModeScreenshot.png)
+
+Stretch Mode Screen Shot
+![STRETCH MODE](./images/stretchModeScreenshot.png)
 
 ### Prerequisites
 
@@ -50,24 +53,27 @@ The styling of the interface is heavily influenced by a J.R.R. Tolkien motif fro
 
 ## Installation
  
-<!-- 1. Open up your editor of choice and run an `npm install`
+1. Open up your editor of choice and run an `npm install`
 2. Initiate the server using `node server/server.js`
 3. navigate to host ip and port in browser (e.g. `127.0.0.1:5000`)
-4. Enjoy!!! -->
+4. Enjoy!!!
 
 ## Usage
-<!-- How does someone use this application? Tell a user story here.
 
-1. To add an employee
-  - Fill out fields in Add Employee form
-  -  ID is a required alphanumeric field is enforced
-  - Salary is a required positive number field and is enforced
-  - Click the `Submit New Employee` button and a new record will appear in the table
-2. To remove an employee
-  - Click the `delete` button in the relevant table row and the employee will be removed
-3. Total Monthly cost appears beneath the Employees table
-  - This value automatically adjusts whenever an employee is removed or added
-  - A warning will display if the monthly cost exceeds the budget of $20,000.00 -->
+1. In base mode
+  - Enter numbers into the `First Number` and `Second Number` input fiels of Data Entry / Input area.
+  -  Select an `operator` button (only one can be selected at a time). Selected button will stay depressed so you can remember which you selected.
+  - Press the `=` button and the result will display to the results areas and the entire expression will be written to the server
+  - Press the `C` button to clear the dta entry area without evaluation of expression.  You will have to reselect your operator as well.
+  - In the history area, press the `Clear/Delete Results` button to clear the Result History and delete all results from the server.
+  - In the history area you may slect one of the `displayed expressions` within it's borders to recall that expression to the data entry area.  This will over-write any input currently in the data entry area.
+2. In stretch mode
+  - All functionality remains the same except...
+  - Instead of filling in the number inputs and selecting operator, you may use the `keypad` or type directly into the `Input Expression ` field.
+  - Pressing the `=` button will send the expression to the results area as expected.
+3. Mode Switching
+  - To switch between `base mode` and `stretch mode` press the mode button in the banner marked `Click here for (BASE/STRETCH) MODE`.
+
 
 ## Built With
 
