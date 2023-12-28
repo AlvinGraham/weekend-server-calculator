@@ -30,6 +30,21 @@ app.post('/calculations', (req , res) => {
   const numTwo = req.body.numTwo;
   const operator = req.body.operator;
 
+  // data validation
+  if (!numOne || !numTwo) {
+    console.error('Error. Missing operand.');
+    res.sendStatus(403);
+    return;
+  }
+  
+  if (isNaN(+numOne) || isNaN(+numTwo)) {
+    console.error('Error. Both operands must be numbers.');
+    console.error('numOne type:', numOne, (typeof +numOne), 
+      '\nnumTwo type:', numTwo, (typeof +numTwo));
+    res.sendStatus(403);
+    return;
+  } 
+
   // Evaluate expression
   switch (operator) {
     case '+':
@@ -45,7 +60,10 @@ app.post('/calculations', (req , res) => {
       result = +numOne * +numTwo;
       break;
     default:
-      console.log('No Valid Operator');
+      // operand data validation
+      console.error('No Valid Operator. Must be +, -, *, or /.');
+      res.sendStatus(403);
+      return;
   }
   // console.log('Result:', result);
 

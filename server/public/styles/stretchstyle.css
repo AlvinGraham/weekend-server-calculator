@@ -1,0 +1,98 @@
+/* Gobal Rules */
+html {
+  background-color: black;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+/* Header Rules */
+.header {
+  background-color: purple;
+  color: gold;
+  height: 100px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  border-bottom: 1px solid gold;
+}
+
+.header img {
+  height: 100px;
+  border-radius: 90px;
+  position: absolute;
+  margin: 0px 10px;
+}
+
+.header h1, .header h2 {
+  text-align: center;
+  margin: 0;
+}
+
+.header h1 {
+  font-size: 2em;
+}
+
+/* Main Rules */
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  width: 150px;
+  min-height: 400px;
+/*   background-image: url("../images/romanColumn.png");
+  background-size: contain; */
+  padding: 10px;
+}
+
+.left.column {
+  background-image: url("../images/romanColumn.png"), linear-gradient(to right, purple, black);
+  background-size: contain; 
+  background-position: center;
+  background-repeat: no-repeat; 
+}
+
+.right.column {
+  background-image: url("../images/romanColumn.png"), linear-gradient(to left, purple, black);
+  background-size: contain; 
+  background-position: center;
+  background-repeat: no-repeat; 
+}
+
+.center {
+  display: flex;
+  flex-flow: column nowrap;
+  color: gold;
+  align-items: center;
+  min-width: 500px;
+}
+
+/* Display Area */
+.inputForm {
+  padding: 10px;
+  margin-top: 10px;
+  border: 2px solid purple;
+  border-radius: 10px;
+}
+
+.recentResult {
+  margin-top: 50px;
+  border: 2px solid purple;
+  border-radius: 10px;
+
+}
+
+.resultHistory {
+  margin-top: 20px;
+  border: 2px solid purple;
+  border-radius: 10px;
+}
+
+/* Buttons */
+
+.clicked {
+  background-color: grey;
+}
