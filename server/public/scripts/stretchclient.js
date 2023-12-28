@@ -2,8 +2,6 @@
 
 console.log('stretchClient.js is sourced!');
 
-// global variables
-let currentOperation;
 
 // global DOM Elements
 
@@ -11,10 +9,11 @@ const plusBtnEle = document.getElementById('plusBtn');
 const minusBtnEle = document.getElementById('minusBtn');
 const timesBtnEle = document.getElementById('timesBtn');
 const divideBtnEle = document.getElementById('divideBtn');
-const numOneEle = document.getElementById('numOne');
-const numTwoEle = document.getElementById('numTwo');
+const expInputEle = document.getElementById('expInput');
+
+
 console.log(plusBtnEle, minusBtnEle,timesBtnEle, divideBtnEle);
-console.log(numOneEle, numTwoEle);
+console.log(expInputEle, expInputEle.value);
 
 renderHistoryResults();
 
@@ -64,14 +63,38 @@ function equalsBtnClk(event) {
   console.log('Equals Button Clicked');
 
   //assemble data
-  let numOne = numOneEle.value;
-  let numTwo = numTwoEle.value;
-  let resultExp = {numOne: numOne, numTwo: numTwo, operator: currentOperation};
+  let currentOperation;
+  let numOne, numTwo; 
+  let resultExp;
+  let inputExp = expInputEle.value;
+  let opPos;
+
+  // Parse inputExp
+    // find operator
+  if (inputExp.indexOf('+') !== -1) {
+    opPos = inputExp.indexOf('+');
+  } else if (inputExp.indexOf('-') !== -1) {
+    opPos = inputExp.indexOf('-');
+  } else if (inputExp.indexOf('*') !== -1) {
+    opPos = inputExp.indexOf('*');
+  } else if (inputExp.indexOf('/') !== -1) {
+    opPos = inputExp.indexOf('/');
+  } else {
+    console.error('Error: No valid operator found:', inputExp);
+  }
+
+  //assemble payload
+  currentOperation = inputExp.slice(opPos, opPos+1);
+  numOne = (inputExp.slice(0, opPos)).trim();
+  numTwo = (inputExp.slice(opPos+1)).trim();
+  resultExp = {numOne: numOne, numTwo: numTwo, operator: currentOperation};
+  console.log(numOne, currentOperation, numTwo);
   
   //data validation
+
   if (currentOperation !== '+' && currentOperation !== '-' 
       && currentOperation !== '/' && currentOperation !== '*') {
-        alert('Invalid operator.  Please select +, -, /, or * button!');
+        alert('Invalid operator.  Please include +, -, /, or * operator!');
         console.error('Invalid operator.  Current operator:', currentOperation);
         return;
       }
@@ -79,7 +102,7 @@ function equalsBtnClk(event) {
     alert('Operand inputs must be numbers!');
     console.error('Invalid operands (not numbers).  numOne:', numOne, 'numTwo:', numTwo);
     return;
-  }
+  } 
 
   // POST results to server
   axios({
@@ -103,48 +126,21 @@ function equalsBtnClk(event) {
 
 }
 
-// operator button selection
+// key button selection
 function keyBtnClk (op, event) {
   event.preventDefault();
-  
-  // clear and set operator buttonand buttons
-  clearBtns();
-  switch (op) {
-    case '+':
-      plusBtnEle.classList.add('clicked');
-      break;
-    case '-':
-      minusBtnEle.classList.add('clicked');
-      break;
-    case '*':
-      timesBtnEle.classList.add('clicked');
-      break;
-    case '/':
-      divideBtnEle.classList.add('clicked');
-      break;
-    default:
-      console.error('No operation button selected');
-  }
-  // set operator
-  currentOperation = op;
+  console.log('In keyBtnClk function');
+  expInputEle.value += op;
+  // console.log('op:', op, '\nvalue:');
   return;
 }
 
-function clearBtns () {
-  plusBtnEle.classList.remove('clicked');
-  minusBtnEle.classList.remove('clicked');
-  timesBtnEle.classList.remove('clicked');
-  divideBtnEle.classList.remove('clicked');
-  return;
-}
 
 function clearForm (event) {
   event.preventDefault();
-  console.log(event);
+
   //clear form
-  numOneEle.value = null;
-  numTwoEle.value = null;
-  clearBtns();
+  expInputEle.value = null;
 }
 
 function clrHistory(event) {
@@ -176,9 +172,7 @@ function recallExp(event) {
   console.log(expArr);
 
   // populate data entry area
-  numOneEle.value = expArr[0];
-  numTwoEle.value = expArr[2];
-  keyBtnClk(expArr[1], event);
+  expInputEle.value = expArr[0] + expArr[1] + expArr[2];
   currentResultWindowEle = document.getElementById('currentResultWindow');
   currentResultWindowEle.innerHTML = null;
   return;

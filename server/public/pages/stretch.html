@@ -5,7 +5,7 @@
     <title>Server-Side Calculator</title>  
     <link href="../styles/stretchStyle.css" rel="stylesheet">  
     <script defer src="../scripts/axios.js"></script>
-    <script defer src="../scripts/client.js" charset="utf-8"></script>
+    <script defer src="../scripts/stretchClient.js" charset="utf-8"></script>
   </head>
   <body>
     <section class="header">
@@ -22,7 +22,7 @@
           <h3>DATA ENTRY/INPUT</h3>
           <br>
           <label id="inputLabel" for="expInput">Input Expression:</label>
-          <input id="expInput" type="text" placeholder="Enter expression here or use keypad">
+          <input id="expInput" type="text" placeholder="Enter expression ('number operand number') here or use keypad">
           <button id="clearBtn" onclick="clearForm(event)">C</button>
           <p>Press '=' to calculate and write to server.</p>
           <div class="keyPad">
